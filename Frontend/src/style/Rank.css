@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+.main{
+ 
+    /* min-height: 200vh; */
+    
+ }
+.restart{
+    
+    border: 3px solid #0C2543;
+    padding: 5px;
+    width: 10%;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+    margin-left: 35em;
+    
+}
+.btn{
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform:capitalize;
+    color: #0C2543;
+}
+.rank , .points{
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.questions , .check{
+    color: #0C2543;
+    display: inline-block;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+    word-spacing:1em;
+    /* margin: 10px; */
+}
+
+
+
