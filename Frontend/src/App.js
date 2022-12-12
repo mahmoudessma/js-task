@@ -1,6 +1,6 @@
 
 import './App.css';
-import {BrowserRouter, createBrowserRouter, Navigate, Route, RouterProvider, Routes} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import HomeScreen from './Screens/HomeScreen'
 import PracticeScreen from './Screens/PracticeScreen';
 import RankScreen from './Screens/RankScreen';

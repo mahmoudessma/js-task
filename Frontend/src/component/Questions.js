@@ -8,7 +8,7 @@ export default function Question({onChecked}) {
         console.log(questions)
     },[questions])
 
-    const [checked , setchecked] = useState(null)
+    
     function onSelect(ans)
     {
         
@@ -21,7 +21,7 @@ export default function Question({onChecked}) {
         
         <ul key={questions?.id}>
             <li>
-                <input type="radio" value="verb" name="options" id="verb" onChange={()=>onSelect('verb')}  checked={true}/>
+                <input type="radio" value="verb" name="options" id="verb" onChange={()=>onSelect('verb')}  />
                 <label>verb</label>
             </li>
             <hr></hr>

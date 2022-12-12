@@ -1,4 +1,4 @@
-import headerbg from './header-bg.jpg';
+
 import '../style/Home.css'
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
