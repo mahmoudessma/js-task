@@ -1,18 +1,13 @@
 import '../style/practice.css'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 export default function Question({onChecked}) {
 
     const questions = useSelector(state =>state.questions.queue[state.questions.trace])
-    useEffect(()=>{
-        console.log(questions)
-    },[questions])
-
     
     function onSelect(ans)
     {
-        
-        onChecked(ans)
+        onChecked(ans)   
     }
     
   return (

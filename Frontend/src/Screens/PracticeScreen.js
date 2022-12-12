@@ -20,15 +20,6 @@ const result = useSelector(state =>state.result.result)
 const {trace,queue } = useSelector(state =>state.questions)
 const {questions:{ answers } } = useSelector(state => state)
 
-    useEffect(()=>{
-        console.log(result)
-        console.log(answers)
-        console.log(trace)
-        // console.log(check_result(result , answers))
-       
-        
-    },[result])
-    
     // display the random question from backend 
 useEffect(()=>{
     const fetchquestions =async()=>{ 
@@ -55,8 +46,9 @@ function onChecked(check){
 function next(){
     
     if(trace < queue.length){
-        
+        // increse the trace
         dispatch(Action.moveNextAction(trace))
+        // add result in the array
         dispatch(Actions.pushResultAction(check))
     }
         // displaya notification that tell him if answer is wrong or correct
@@ -83,8 +75,8 @@ function next(){
             }
             
             
-            
-            
+            // reset the value
+            onChecked(undefined)        
             
         }
         // if the student go the last question then go to rankscreen 

@@ -8,7 +8,7 @@ import { resetResultAction } from "../Redux/ResultReducer"
 import * as Actionss from '../Redux/StudentReducer'
 
 export default function RankScreen(){
-    const [score , setscore] = useState(null)
+    const [rank , setrank] = useState(null)
     const [score1 , setscore1] = useState(null)
     const dispatch =useDispatch();
     const {questions:{queue , answers} , result :{result , userId}} = useSelector(state => state)
@@ -20,13 +20,11 @@ export default function RankScreen(){
     }
     const check = check_result(result , answers)
     // calculate the score
-    function earnPoints_Number(result, answers, point){
-        // return result.map((element, i) => answers[i] === element).filter(i => i).map(i => point).reduce((prev, curr) => prev + curr, 0);
-
+    function earnPoints_Number(result, answers){
         return (result.map((element, i) => answers[i] === element).filter(i => i).length/queue.length)*100;
     }
     
-    const earnPoints = earnPoints_Number(result, answers, 10)
+    const earnPoints = earnPoints_Number(result, answers)
 
     // display the questions only
     function getquestions (questions){
@@ -63,7 +61,7 @@ export default function RankScreen(){
     useEffect(()=>{
         const clacscore=async()=>{
             const scoree= await axios.post(`/rank/${score1}`);
-            setscore(scoree.data)
+            setrank(scoree.data)
             
         }
         clacscore();
@@ -77,10 +75,8 @@ export default function RankScreen(){
             dispatch(Actionss.setScore({userId, earnPoints}))
         }
         savescore();
-        console.log(`${getquestions(questions)}-> ${getcheck(check)}`)
-        console.log(state)
         
-    },[score])
+    },[rank])
 
     // function reset the data to validate the student restart the exam
     function onRestart(){
@@ -101,7 +97,7 @@ export default function RankScreen(){
               ))}</div>
               <div className='check'>{res.map((res,i)=>(
                <div key={i}>
-                   {res && res =='wrong' ?(
+                   {res && res ==='wrong' ?(
                 <div style={{color:"red"}}>{res}</div>
                ):(<div style={{color:"green"}}>{res}</div>)} 
                </div>                
@@ -109,7 +105,7 @@ export default function RankScreen(){
             </div>
             
             <div className='rank container'>
-            <p>rank = {score}</p>
+            <p>rank = {rank}</p>
 
             </div>
             <div className='points container'>
